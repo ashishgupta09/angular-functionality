@@ -1,1 +1,73 @@
-<p>template-driven-form works!</p>
+<form #form="ngForm" (ngSubmit)="onSubmit(form)" class="form-container">
+
+    <h2>Register Form</h2>
+
+    <!-- Name -->
+    <div class="form-group">
+        <input type="text" name="name" ngModel required minlength="3" #name="ngModel" placeholder="Enter name">
+
+        @if (name.touched && name.errors?.['required']) {
+        <small>Name is required</small>
+        }
+
+        @if (name.errors?.['minlength']) {
+        <small>Minimum 3 characters</small>
+        }
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+        <input type="email" name="email" ngModel required email #email="ngModel" placeholder="Enter email">
+
+        @if (email.touched && email.errors?.['required']) {
+        <small>Email is required</small>
+        }
+
+        @if (email.errors?.['email']) {
+        <small>Invalid email</small>
+        }
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+        <input type="password" name="password" ngModel required minlength="6" #password="ngModel"
+            placeholder="Enter password">
+
+        @if (password.touched && password.errors?.['required']) {
+        <small>Password is required</small>
+        }
+
+        @if (password.errors?.['minlength']) {
+        <small>Minimum 6 characters</small>
+        }
+    </div>
+
+    <!-- Number -->
+
+    @for (num of phoneNumbers; track $index; let i = $index) {
+
+    <div class="form-group">
+
+        <input type="text" name="phone{{i}}" [(ngModel)]="phoneNumbers[i]" required pattern="^[0-9]{10}$"
+            #phone="ngModel" placeholder="Enter number">
+
+        @if (phone.touched && phone.errors?.['required']) {
+        <small>Required</small>
+        }
+
+        @if (phone.errors?.['pattern']) {
+        <small>Invalid number</small>
+        }
+
+        <button type="button" (click)="removeField(i)" style="margin-top: 10px;">Remove</button>
+    </div>
+
+    }
+
+    <button type="button" (click)="addField()">Add Number</button>
+
+    <button type="submit" [disabled]="form.invalid" style="margin-top: 10px;">
+        Submit
+    </button>
+
+</form>
