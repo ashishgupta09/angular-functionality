@@ -1,0 +1,61 @@
+<h2>User List</h2>
+
+<div class="table-container">
+
+    <table class="responsive-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>City</th>
+                <th>Company</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (users.length > 0) {
+            @for (user of users; track user.id) {
+            <tr>
+                <td data-label="Name">
+                    {{ user.firstName }} {{ user.lastName }}
+                </td>
+
+                <td data-label="Email">
+                    {{ user.email }}
+                </td>
+
+                <td data-label="City">
+                    {{ user.address?.city }}
+                </td>
+
+                <td data-label="Company">
+                    {{ user.company?.name }}
+                </td>
+
+                <td data-label="Action">
+                    <button (click)="getUser(user.id!)">View</button>
+                </td>
+            </tr>
+            }
+            } @else {
+            <tr>
+                <td colspan="5" class="no-data">No Users Found</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+<hr>
+
+@if (selectedUser) {
+<div class="user-card">
+    <h3>User Details</h3>
+    <p><b>Name:</b> {{ selectedUser.firstName }} {{ selectedUser.lastName }}</p>
+    <p><b>Email:</b> {{ selectedUser.email }}</p>
+    <p><b>Phone:</b> {{ selectedUser.phone }}</p>
+    <p><b>City:</b> {{ selectedUser.address?.city }}</p>
+</div>
+}
