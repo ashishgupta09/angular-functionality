@@ -1,0 +1,70 @@
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+button {
+    padding: 6px 10px;
+    margin: 3px;
+    border: none;
+    cursor: pointer;
+}
+
+.add-btn {
+    background: green;
+    color: white;
+}
+
+.edit-btn {
+    background: blue;
+    color: white;
+}
+
+.delete-btn {
+    background: red;
+    color: white;
+}
+
+.save-btn {
+    background: green;
+    color: white;
+}
+
+.cancel-btn {
+    background: gray;
+    color: white;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    border-radius: 8px;
+}
+
+input {
+    width: 100%;
+    margin: 5px 0;
+    padding: 8px;
+}

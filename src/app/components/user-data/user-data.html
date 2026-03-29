@@ -1,0 +1,49 @@
+<h2>User CRUD</h2>
+
+<button class="add-btn" (click)="openModal()">Add User</button>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>City</th>
+        <th>Actions</th>
+    </tr>
+
+    @for (u of users; track $index; let i = $index) {
+    <tr>
+        <td>{{ u.name }}</td>
+        <td>{{ u.email }}</td>
+        <td>{{ u.phone }}</td>
+        <td>{{ u.city }}</td>
+        <td>
+            <button class="edit-btn" (click)="editUser(i)">Edit</button>
+            <button class="delete-btn" (click)="deleteUser(i)">Delete</button>
+        </td>
+    </tr>
+    }
+</table>
+
+<!-- Modal -->
+@if (isModalOpen) {
+<div class="modal">
+    <div class="modal-content">
+
+        <h3>{{ editIndex !== null ? 'Edit User' : 'Add User' }}</h3>
+
+        <input [(ngModel)]="user.name" placeholder="Name">
+        <input [(ngModel)]="user.email" placeholder="Email">
+        <input [(ngModel)]="user.phone" placeholder="Phone">
+        <input [(ngModel)]="user.address" placeholder="Address">
+        <input [(ngModel)]="user.pincode" placeholder="Pincode">
+        <input [(ngModel)]="user.city" placeholder="City">
+
+        <div>
+            <button class="save-btn" (click)="saveUser()">Save</button>
+            <button class="cancel-btn" (click)="closeModal()">Cancel</button>
+        </div>
+
+    </div>
+</div>
+}
