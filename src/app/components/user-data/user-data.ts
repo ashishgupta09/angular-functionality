@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { User } from '../../../interfaces/users';
-import { LocalStorage } from '../../../services/local-storage';
+import { User } from '../../interfaces/users';
+import { LocalStorage } from '../../services/local-storage';
 import { FormsModule } from '@angular/forms';
 
 @Component({
