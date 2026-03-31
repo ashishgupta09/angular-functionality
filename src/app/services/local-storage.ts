@@ -30,4 +30,19 @@ export class LocalStorage {
     localStorage.setItem(this.key, JSON.stringify(users));
   }
 
+  // promises
+
+  downloadFile(): Promise<string> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const success = true;
+        if (success) {
+          resolve("File downloaded successfully");
+        } else {
+          reject("Download failed");
+        }
+      },2000)
+    })
+  }
+
 }
