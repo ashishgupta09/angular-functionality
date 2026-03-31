@@ -1,1 +1,17 @@
-<p>join-creation works!</p>
+<input #searchBox placeholder="Search..." />
+<select #category>
+    <option value="all">All</option>
+    <option value="tech">Tech</option>
+    <option value="food">Food</option>
+</select>
+
+<!-- next -->
+
+<button #btn1>Fast</button>
+<button #btn2>Slow</button>
+
+
+<button (click)=" zip_Operator()">Pair Data</button>
+<ul>
+    <li *ngFor="let item of result">{{ item }}</li>
+</ul>
