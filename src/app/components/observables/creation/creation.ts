@@ -77,7 +77,7 @@ export class Creation implements OnInit, AfterContentInit, AfterViewInit {
       });
   }
 
-  //of is an RxJS creation operator that creates an Observable from a list of values and emits them sequentially as they are.
+  // of is an RxJS creation operator that creates an Observable from a list of values and emits them sequentially as they are.
 
   of_Oprerator() {
     of(1, 2, 3, 'Angular').subscribe(value => {
@@ -85,7 +85,7 @@ export class Creation implements OnInit, AfterContentInit, AfterViewInit {
     });
   }
 
-  //from is an RxJS creation operator that converts iterable data sources like arrays, promises, or strings into an Observable
+  // from is an RxJS creation operator that converts iterable data sources like arrays, promises, or strings into an Observable
   //  and emits each value individually.
 
   form_Oprerator() {
@@ -94,7 +94,7 @@ export class Creation implements OnInit, AfterContentInit, AfterViewInit {
     });
   }
 
-  //timer is an RxJS creation operator that emits a value after a specified delay, and can optionally continue emitting 
+  // timer is an RxJS creation operator that emits a value after a specified delay, and can optionally continue emitting 
   // values at a given interval.
 
   timer__Oprerator() {
@@ -103,7 +103,7 @@ export class Creation implements OnInit, AfterContentInit, AfterViewInit {
     });
   }
 
-  //interval is an RxJS creation operator that emits sequential numbers at a fixed time interval, starting from 0.
+  // interval is an RxJS creation operator that emits sequential numbers at a fixed time interval, starting from 0.
 
   intervale_Oprerator() {
     interval(5000).subscribe(() => {
@@ -111,7 +111,7 @@ export class Creation implements OnInit, AfterContentInit, AfterViewInit {
     });
   }
 
-  //defer creates an Observable lazily, meaning the logic inside it runs only when someone subscribes.
+  // defer creates an Observable lazily, meaning the logic inside it runs only when someone subscribes.
 
   defer_Oprerator() {
     const data$ = defer(() => {
@@ -123,7 +123,7 @@ export class Creation implements OnInit, AfterContentInit, AfterViewInit {
     data$.subscribe(val => console.log('Value:', val));
   }
 
-  //range creates an Observable that emits a sequence of numbers within a specified range.
+  // range creates an Observable that emits a sequence of numbers within a specified range.
 
   range_Operator() {
     range(1, 5).subscribe(val => console.log(val));
