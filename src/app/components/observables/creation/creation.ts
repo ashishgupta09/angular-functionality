@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { AfterContentInit, AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {
   debounceTime,
@@ -15,7 +16,7 @@ import {
 
 @Component({
   selector: 'app-creation',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './creation.html',
   styleUrl: './creation.scss',
 })
