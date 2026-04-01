@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, share } from 'rxjs';
 import { User } from '../interfaces/user.model';
 
 @Injectable({
@@ -37,4 +37,12 @@ export class Api {
   deleteUser(id: number): Observable<any> {
     return this.http.delete(`${this.API_URL}/${id}`);
   }
+
+  //share 
+
+  getData() {
+    return this.http.get(this.API_URL)
+      .pipe(share());
+  }
+  
 }

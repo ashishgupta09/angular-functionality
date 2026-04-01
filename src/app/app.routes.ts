@@ -37,6 +37,21 @@ export const routes: Routes = [
         path: 'promise',
         loadComponent: () => import('../app/components/promise/promise')
             .then(m => m.Promise)
+    },
+    {
+        path: 'math-operators',
+        loadComponent: () => import('../app/components/observables/math-operations/math-operations')
+            .then(m => m.MathOperations)
+    },
+    {
+        path: 'condition-boolean-opertors',
+        loadComponent: () => import('../app/components/observables/condition-boolean-opertors/condition-boolean-opertors')
+            .then(m => m.ConditionBooleanOpertors)
+    },
+    {
+        path: 'multicasting',
+        loadComponent: () => import('../app/components/observables/multicasting/multicasting')
+            .then(m => m.Multicasting)
     }
-    
+
 ];
