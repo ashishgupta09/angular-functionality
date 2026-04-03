@@ -24,6 +24,7 @@ export class Multicasting implements OnInit {
     this.share_Operators();
     this.share_API_Operators();
     this.getUsers();
+    this.connectable();
   }
 
   // share converts a cold Observable into a hot Observable and shares a single execution among multiple subscribers.
@@ -63,6 +64,17 @@ export class Multicasting implements OnInit {
         );
     }
     return this.users$;
+  }
+
+  // connectable is an RxJS operator that converts a cold Observable into a connectable (hot) Observable, which starts emitting 
+  // values only when connect() is explicitly called.
+
+  connectable() {
+    const source$ = interval(1000).pipe(take(3));
+    const connectable$ = source$.pipe(share());
+    connectable$.subscribe(x => console.log('Sub1:', x));
+    connectable$.subscribe(x => console.log('Sub2:', x));
+   // connectable$.connect(); // Uncomment to start emitting values
   }
 
 }

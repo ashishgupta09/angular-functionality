@@ -52,6 +52,11 @@ export const routes: Routes = [
         path: 'multicasting',
         loadComponent: () => import('../app/components/observables/multicasting/multicasting')
             .then(m => m.Multicasting)
+    },
+    {
+        path: 'join-operator',
+        loadComponent: () => import('../app/components/observables/join/join')
+            .then(m => m.Join)
     }
 
 ];
