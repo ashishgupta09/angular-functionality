@@ -1,6 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { count, from, max, min, reduce } from 'rxjs';
+import {
+  count,
+  from,
+  max,
+  min,
+  reduce
+} from 'rxjs';
 
 @Component({
   selector: 'app-math-operations',
@@ -12,7 +18,7 @@ export class MathOperations implements OnInit {
 
   total = 0;
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.count_operators();
     this.getMax();
     this.getMin();
@@ -52,5 +58,5 @@ export class MathOperations implements OnInit {
       )
       .subscribe(res => console.log('Sum:', res));
   }
-  
+
 }

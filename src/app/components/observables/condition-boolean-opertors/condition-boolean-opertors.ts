@@ -1,6 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { defaultIfEmpty, every, find, findIndex, from, isEmpty, of } from 'rxjs';
+import {
+  defaultIfEmpty,
+  every,
+  find,
+  findIndex,
+  from,
+  isEmpty,
+  of
+} from 'rxjs';
 
 @Component({
   selector: 'app-condition-boolean-opertors',
