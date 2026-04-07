@@ -126,7 +126,7 @@ export class Creation implements OnInit, AfterContentInit, AfterViewInit {
     // }
 
     data$.subscribe(val => console.log('Defer value:', val));
-  }
+  
 
   // ===== REAL-WORLD EXAMPLES =====
 
