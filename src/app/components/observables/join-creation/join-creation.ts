@@ -58,7 +58,7 @@ export class JoinCreation implements OnInit, AfterViewInit {
       });
   }
 
-  // concat executes Observables sequentially, waiting for one to complete before starting the next
+  // concat executes Observables sequentially, waiting for one to complete before starting the next.
 
   concat_Operator() {
     const login$ = of('User logged in').pipe(delay(1000));
