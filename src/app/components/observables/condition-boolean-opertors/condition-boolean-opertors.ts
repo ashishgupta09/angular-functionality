@@ -62,4 +62,44 @@ export class ConditionBooleanOpertors implements OnInit {
       .subscribe(console.log);
   }
 
+  // ===== REAL-WORLD EXAMPLES =====
+
+  // Example 1: Form Validation - Check if all fields valid
+  // allFieldsValid(controls: FormControl[]): Observable<boolean> {
+  //   return from(controls).pipe(
+  //     every(control => control.valid),
+  //     startWith(false)
+  //   );
+  // }
+
+  // Example 2: Find User by ID
+  // findUserById(id: number, users: User[]) {
+  //   return from(users).pipe(
+  //     find(user => user.id === id),
+  //     defaultIfEmpty(null)
+  //   );
+  // }
+
+  // Example 3: Get Index Position for Update
+  // getItemPositionInCart(productId: number, cart: Product[]): Observable<number> {
+  //   return from(cart).pipe(
+  //     findIndex(item => item.id === productId)
+  //   );
+  // }
+
+  // Example 4: Check Search Results
+  // checkSearchResults(query: string): Observable<string> {
+  //   return this.apiService.search(query).pipe(
+  //     isEmpty(),
+  //     map(isEmpty => isEmpty ? 'No results found' : 'Results available')
+  //   );
+  // }
+
+  // Example 5: Validate All Items in Array (E-commerce)
+  // validateAllItemsInStock(items: Product[]): Observable<boolean> {
+  //   return from(items).pipe(
+  //     every(item => item.stock > 0)
+  //   );
+  // }
+
 }

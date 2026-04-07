@@ -121,5 +121,70 @@ export class Join implements OnInit, AfterViewInit {
       });
   }
 
+  // ===== REAL-WORLD EXAMPLES =====
+
+  // Example 1: Prevent Double Form Submission
+  // submitForm(data: FormData): Observable<any> {
+  //   return fromEvent(this.submitBtn, 'click')
+  //     .pipe(
+  //       exhaustMap(() => this.apiService.submitForm(data))
+  //       // Ignores clicks while submission is in progress
+  //     );
+  // }
+
+  // Example 2: Search with Request Cancellation
+  // performSearch(query: string): Observable<any[]> {
+  //   return fromEvent(this.input.nativeElement, 'keyup')
+  //     .pipe(
+  //       debounceTime(300),
+  //       map((e: any) => e.target.value),
+  //       switchMap(query => this.apiService.search(query))
+  //       // Cancels previous request if user types again
+  //     );
+  // }
+
+  // Example 3: Multi-Step Process (Sequential)
+  // userOnboarding(data: UserData) {
+  //   return of(
+  //     this.authService.createAccount(data),
+  //     this.emailService.sendVerification(data.email),
+  //     this.userService.updateProfile(data.profile)
+  //   ).pipe(
+  //     concatAll()  // One step at a time
+  //   );
+  // }
+
+  // Example 4: Activity Feed - Multiple Real-Time Sources
+  // getActivityFeed(): Observable<Activity[]> {
+  //   return merge(
+  //     this.userService.userUpdates$,
+  //     this.postService.newPosts$,
+  //     this.commentService.newComments$,
+  //     this.notificationService.alerts$
+  //   ).pipe(
+  //     scan((activity, event) => [event, ...activity], [])
+  //   );
+  // }
+
+  // Example 5: Load Dashboard - Wait for All Data
+  // loadDashboard(): Observable<{users: any, posts: any, stats: any}> {
+  //   return forkJoin({
+  //     users: this.apiService.getUsers(),
+  //     posts: this.apiService.getPosts(),
+  //     stats: this.apiService.getStats()
+  //   });
+  //   // Only emits when ALL complete
+  // }
+
+  // Example 6: Parallel File Uploads
+  // uploadMultipleFiles(files: File[]): Observable<UploadProgress[]> {
+  //   return from(files).pipe(
+  //     mergeMap(
+  //       file => this.uploadFile(file),
+  //       3  // Max 3 concurrent uploads
+  //     ),
+  //     scan((acc, progress) => [...acc, progress], [])
+  //   );
+  // }
 
 }

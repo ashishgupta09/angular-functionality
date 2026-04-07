@@ -119,6 +119,54 @@ export class Creation implements OnInit, AfterContentInit, AfterViewInit {
       return of(Math.random());
     });
 
+    // REAL-WORLD EXAMPLE: Cached user synchronously
+    // getCachedUser(): Observable<any> {
+    //   const cache = { id: 1, name: 'John' };
+    //   return cache ? of(cache) : throwError(() => new Error('Not found'));
+    // }
+
+    data$.subscribe(val => console.log('Defer value:', val));
+  }
+
+  // ===== REAL-WORLD EXAMPLES =====
+
+  // Example 1: Search with Debounce - Prevent API spam
+  // setupSearch(): Observable<any[]> {
+  //   return fromEvent(this.input.nativeElement, 'keyup')
+  //     .pipe(
+  //       debounceTime(500),           // Wait 500ms after typing stops
+  //       map((e: any) => e.target.value),
+  //       distinctUntilChanged(),      // Skip if same value
+  //       filter(query => query.length > 2),  // Min 3 chars
+  //       switchMap(query => this.apiService.search(query))
+  //     );
+  // }
+
+  // Example 2: Initial Empty State
+  // loadUsers(): Observable<any[]> {
+  //   return of([]).pipe(
+  //     switchMap(() => this.apiService.getUsers())
+  //   );
+  // }
+
+  // Example 3: Countdown Timer
+  // startCountdown(seconds: number) {
+  //   timer(0, 1000).pipe(
+  //     map(i => seconds - i),
+  //     takeWhile(i => i >= 0)
+  //   ).subscribe(countdown => {
+  //     console.log(`Time remaining: ${countdown}s`);
+  //   });
+  // }
+
+  // Example 4: Polling API
+  // pollForUpdates() {
+  //   return interval(5000).pipe(
+  //     switchMap(() => this.apiService.checkForUpdates()),
+  //     takeUntil(this.destroy$)
+  //   );
+  // }
+
     data$.subscribe(val => console.log('Value:', val));
     data$.subscribe(val => console.log('Value:', val));
   }

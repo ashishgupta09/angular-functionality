@@ -77,4 +77,77 @@ export class Multicasting implements OnInit {
    // connectable$.connect(); // Uncomment to start emitting values
   }
 
+  // ===== REAL-WORLD EXAMPLES =====
+
+  // Example 1: Cache User Data - Prevent Duplicate API Calls
+  // private userCache = new Map<number, Observable<User>>();
+  //
+  // getUserById(id: number): Observable<User> {
+  //   if (!this.userCache.has(id)) {
+  //     this.userCache.set(
+  //       id,
+  //       this.http.get<User>(`/api/users/${id}`).pipe(
+  //         shareReplay({ bufferSize: 1, refCount: true })
+  //       )
+  //     );
+  //   }
+  //   return this.userCache.get(id)!;
+  // }
+  // 
+  // // Usage: 3 components call but only 1 API request
+  // // this.userService.getUserById(1);  // API call
+  // // this.userService.getUserById(1);  // Cached
+  // // this.userService.getUserById(1);  // Cached
+  // }
+
+  // Example 2: Search Cache Service
+  // private searchCache = new Map<string, Observable<SearchResult[]>>();
+  //
+  // search(query: string): Observable<SearchResult[]> {
+  //   if (this.searchCache.has(query)) {
+  //     return this.searchCache.get(query)!;
+  //   }
+  //   const result$ = this.api.search(query).pipe(
+  //     shareReplay({ bufferSize: 1, refCount: true })
+  //   );
+  //   this.searchCache.set(query, result$);
+  //   return result$;
+  // }
+
+  // Example 3: Share Button Clicks Among Multiple Handlers
+  // setupClickSharing() {
+  //   const click$ = fromEvent(this.submitBtn, 'click').pipe(
+  //     share()
+  //   );
+  //
+  //   // Handler 1: Show loading
+  //   click$.subscribe(() => this.showLoading());
+  //
+  //   // Handler 2: Disable button
+  //   click$.subscribe(() => this.disableButton());
+  //
+  //   // Handler 3: Submit form
+  //   click$.subscribe(() => this.submitForm());
+  //   // All share same click event!
+  // }
+
+  // Example 4: Global Notification Service with Caching
+  // getNotifications(): Observable<Notification[]> {
+  //   if (!this.notifications$) {
+  //     this.notifications$ = this.api.getNotifications().pipe(
+  //       shareReplay({ bufferSize: 1, refCount: true })
+  //     );
+  //   }
+  //   return this.notifications$;
+  // }
+  // // Multiple components subscribe without duplicate requests
+
+  // Example 5: Real-Time Data Stream (No Caching Needed)
+  // getRealtimeData(): Observable<any> {
+  //   return this.websocket.connect('/api/realtime')
+  //     .pipe(
+  //       share()  // Share same socket connection
+  //     );
+  // }
+
 }

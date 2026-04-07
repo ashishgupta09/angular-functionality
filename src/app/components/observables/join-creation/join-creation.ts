@@ -127,5 +127,108 @@ export class JoinCreation implements OnInit, AfterViewInit {
     });
   }
 
+  // ===== REAL-WORLD EXAMPLES =====
+
+  // Example 1: Multi-Filter Product Search
+  // setupProductFilters() {
+  //   const search$ = fromEvent(this.searchInput, 'keyup').pipe(
+  //     debounceTime(300),
+  //     map((e: any) => e.target.value),
+  //     startWith('')
+  //   );
+  //
+  //   const category$ = fromEvent(this.categorySelect, 'change').pipe(
+  //     map((e: any) => e.target.value),
+  //     startWith('all')
+  //   );
+  //
+  //   const priceRange$ = fromEvent(this.priceSlider, 'change').pipe(
+  //     map((e: any) => e.target.value),
+  //     startWith(100)
+  //   );
+  //
+  //   combineLatest([search$, category$, priceRange$])
+  //     .subscribe(([search, category, price]) => {
+  //       this.filteredProducts$ = this.api.searchProducts({
+  //         query: search,
+  //         category,
+  //         maxPrice: price
+  //       });
+  //     });
+  // }
+
+  // Example 2: Load Dashboard - All Data at Once
+  // loadDashboard() {
+  //   return forkJoin({
+  //     userData: this.userService.getUser(),
+  //     statistics: this.analyticsService.getStats(),
+  //     notifications: this.notificationService.getAll(),
+  //     messages: this.messageService.getRecent(),
+  //     tasks: this.taskService.getAllTasks()
+  //   }).pipe(
+  //     tap(data => {
+  //       this.userProfileCard.data = data.userData;
+  //       this.statsWidget.data = data.statistics;
+  //       this.dashboardReady = true;
+  //     })
+  //   );
+  // }
+
+  // Example 3: Multi-Step User Onboarding (Sequential)
+  // completeOnboarding(data: OnboardingData) {
+  //   return concat(
+  //     this.authService.createAccount(data).pipe(take(1)),
+  //     this.emailService.sendVerification(data.email).pipe(take(1)),
+  //     this.userService.updateProfile(data.profile).pipe(take(1)),
+  //     this.dataService.sync().pipe(take(1))
+  //   ).pipe(
+  //     finalize(() => this.showSuccess('Onboarding complete!'))
+  //   );
+  // }
+
+  // Example 4: Activity Feed - Multiple Real-Time Sources
+  // getActivityFeed(): Observable<Activity[]> {
+  //   return merge(
+  //     this.userService.userUpdates$,
+  //     this.postService.newPosts$,
+  //     this.commentService.newComments$,
+  //     this.likeService.newLikes$,
+  //     this.notificationService.alerts$
+  //   ).pipe(
+  //     startWith([]),
+  //     scan((activity, event) => [event, ...activity], [])
+  //   );
+  // }
+
+  // Example 5: Split Valid/Invalid Data
+  // processCSVData(rows: any[]) {
+  //   const [valid, invalid] = partition(
+  //     from(rows),
+  //     row => this.validateRow(row)
+  //   );
+  //
+  //   valid.subscribe(row => {
+  //     this.api.saveData(row).subscribe(
+  //       () => this.successCount++,
+  //       err => this.errorCount++
+  //     );
+  //   });
+  //
+  //   invalid.subscribe(row => {
+  //     this.invalidRows.push(row);
+  //   });
+  // }
+
+  // Example 6: Zip - Pair Related Data
+  // matchUsersWithOrders(users: User[], orders: Order[]) {
+  //   zip(
+  //     from(users),
+  //     from(orders)
+  //   ).subscribe(([user, order]) => {
+  //     console.log(`${user.name} placed order #${order.id}`);
+  //   });
+  // }
+
 }
+
 
