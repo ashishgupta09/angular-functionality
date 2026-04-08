@@ -105,7 +105,7 @@ export class Join implements OnInit, AfterViewInit {
       .subscribe(console.log);
   }
 
-  // withLatestFrom combines the source Observable with the latest value from another Observable whenever the source emits
+  // withLatestFrom combines the source Observable with the latest value from another Observable whenever the source emits.
 
   withLatestFrom_opertor() {
     const search$ = fromEvent(this.search.nativeElement, 'keyup')

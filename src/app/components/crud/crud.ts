@@ -1,10 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../interfaces/user.model';
 import { Api } from '../../services/api';
+import { CapitalizePipe } from '../../pipes/capitalize-pipe';
 
 @Component({
   selector: 'app-crud',
-  imports: [],
+  imports: [CommonModule,CapitalizePipe],
   templateUrl: './crud.html',
   styleUrl: './crud.scss',
 })

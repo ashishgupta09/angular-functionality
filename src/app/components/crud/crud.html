@@ -18,11 +18,11 @@
             @for (user of users; track user.id) {
             <tr>
                 <td data-label="Name">
-                    {{ user.firstName }} {{ user.lastName }}
+                    {{ user.firstName | capitalize  }} {{ user.lastName | capitalize  }}
                 </td>
 
                 <td data-label="Email">
-                    {{ user.email }}
+                    {{ user.email | capitalize }}
                 </td>
 
                 <td data-label="City">
