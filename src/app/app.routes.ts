@@ -31,49 +31,47 @@ export const routes: Routes = [
     // 🔒 PROTECTED ROUTES
     {
         path: 'user-data',
-        canActivate: [authGuard],   // ✅ added
         loadComponent: () => import('../app/components/user-data/user-data')
             .then(m => m.UserData)
     },
 
     {
         path: 'crud',
-        canActivate: [authGuard],
         loadComponent: () => import('../app/components/crud/crud')
             .then(m => m.Crud)
     },
 
     {
         path: 'promise',
-        canActivate: [authGuard],
+        // canActivate: [authGuard],
         loadComponent: () => import('../app/components/promise/promise')
             .then(m => m.Promise)
     },
 
     {
         path: 'math-operators',
-        canActivate: [authGuard],
+        // canActivate: [authGuard],
         loadComponent: () => import('../app/components/observables/math-operations/math-operations')
             .then(m => m.MathOperations)
     },
 
     {
         path: 'condition-boolean-opertors',
-        canActivate: [authGuard],
+        // canActivate: [authGuard],
         loadComponent: () => import('../app/components/observables/condition-boolean-opertors/condition-boolean-opertors')
             .then(m => m.ConditionBooleanOpertors)
     },
 
     {
         path: 'multicasting',
-        canActivate: [authGuard],
+        // canActivate: [authGuard],
         loadComponent: () => import('../app/components/observables/multicasting/multicasting')
             .then(m => m.Multicasting)
     },
 
     {
         path: 'join-operator',
-        canActivate: [authGuard],
+        // canActivate: [authGuard],
         loadComponent: () => import('../app/components/observables/join/join')
             .then(m => m.Join)
     }

@@ -1,16 +1,19 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { User } from '../../interfaces/users';
 import { LocalStorage } from '../../services/local-storage';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user-data',
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './user-data.html',
   styleUrl: './user-data.scss',
 })
 export class UserData {
+  @Input() message!: string;
+  @Output() notify = new EventEmitter<string>();
+
   users: User[] = [];
 
   user: User = {
@@ -72,5 +75,9 @@ export class UserData {
   deleteUser(index: number) {
     this.storage.deleteUser(index);
     this.loadUsers();
+  }
+
+  sendData() {
+    this.notify.emit('Hello Parent');
   }
 }
