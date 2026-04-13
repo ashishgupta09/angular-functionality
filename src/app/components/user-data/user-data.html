@@ -47,3 +47,20 @@
     </div>
 </div>
 }
+
+
+<button (click)="tab = 'tab1'">Tab1</button>
+<button (click)="tab = 'tab2'">Tab2</button>
+<button (click)="tab = 'tab3'">Tab3</button>
+
+@if (tab === 'tab1') {
+  <app-tab1></app-tab1>
+}
+
+@if (tab === 'tab2') {
+  <app-tab2></app-tab2>
+}
+
+@if (tab === 'tab3') {
+  <app-tab3></app-tab3>
+}

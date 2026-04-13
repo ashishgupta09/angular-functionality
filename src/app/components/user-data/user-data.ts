@@ -3,16 +3,26 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { User } from '../../interfaces/users';
 import { LocalStorage } from '../../services/local-storage';
 import { FormsModule } from '@angular/forms';
+import { Tab1 } from '../shared-component-data/tab1/tab1';
+import { Tab2 } from '../shared-component-data/tab2/tab2';
+import { Tab3 } from '../shared-component-data/tab3/tab3';
 
 @Component({
   selector: 'app-user-data',
-  imports: [CommonModule, FormsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    Tab1,
+    Tab2,
+    Tab3
+  ],
   templateUrl: './user-data.html',
   styleUrl: './user-data.scss',
 })
 export class UserData {
   @Input() message!: string;
   @Output() notify = new EventEmitter<string>();
+  tab = 'tab1';
 
   users: User[] = [];
 
