@@ -12,9 +12,6 @@ import { Tab3 } from '../shared-component-data/tab3/tab3';
   imports: [
     CommonModule,
     FormsModule,
-    Tab1,
-    Tab2,
-    Tab3
   ],
   templateUrl: './user-data.html',
   styleUrl: './user-data.scss',
