@@ -1,0 +1,54 @@
+<!-- element Ref example -->
+
+<div class="chat-upperconatiner">
+
+    <!-- Chat Messages -->
+    <div class="chat-container" #chatContainer>
+        @for (msg of messages; track $index) {
+        <div class="message">
+            {{ msg }}
+        </div>
+        }
+    </div>
+
+    <!-- Input Area -->
+    <div class="chat-input-box">
+        <input #msgInput type="text" placeholder="Type a message..." (keyup.enter)="sendMessage(msgInput)" />
+
+        <button (click)="sendMessage(msgInput)" class="send-btn">
+            Send
+        </button>
+    </div>
+
+</div>
+
+<!-- template Ref example -->
+
+<ng-template #cardTemplate let-name="name">
+    <div class="card">
+        Hello, {{ name }} 👋
+    </div>
+</ng-template>
+
+<div #container></div>
+
+<button (click)="loadTemplate()" class="btn">
+    Load Card
+</button>
+
+<button (click)="loadMultiple()" class="btn secondary">
+    Load Multiple Cards
+</button>
+
+// 
+
+<div class="list">
+  @for (item of items; track $index) {
+    <div #itemEl class="item">
+      {{ item }}
+    </div>
+  }
+</div>
+
+<button (click)="highlightAll()">Highlight All</button>
+<button (click)="highlightLast()">Highlight Last</button>

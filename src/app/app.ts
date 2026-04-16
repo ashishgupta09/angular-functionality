@@ -13,14 +13,7 @@ export class App implements OnInit {
 
 
   ngOnInit(): void {
-    this.evenNumbers();
-    this.sumOfEvenNumbers();
-    this.findMissingNumber();
-    this.flattenArray();
-    this.findGraterThenFour();
-    this.removeTheString();
-    this.findMaxNumber();
-    this.asendingArray();
+  
   }
 
   evenNumbers() {

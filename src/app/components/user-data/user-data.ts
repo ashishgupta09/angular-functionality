@@ -1,11 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { User } from '../../interfaces/users';
 import { LocalStorage } from '../../services/local-storage';
-import { FormsModule } from '@angular/forms';
-import { Tab1 } from '../shared-component-data/tab1/tab1';
-import { Tab2 } from '../shared-component-data/tab2/tab2';
-import { Tab3 } from '../shared-component-data/tab3/tab3';
 
 @Component({
   selector: 'app-user-data',

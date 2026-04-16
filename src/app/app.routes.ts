@@ -1,15 +1,17 @@
 import { Routes } from '@angular/router';
-import { authGuard } from './services/authguard'
 
 export const routes: Routes = [
     { path: '', redirectTo: 'user-data', pathMatch: "full" },
-
+    {
+        path: 'chat',
+        loadComponent: () => import('../app/components/chat/chat')
+            .then(m => m.Chat)
+    },
     {
         path: 'reactive-form',
         loadComponent: () => import('../app/components/reactive-form/reactive-form')
             .then(m => m.ReactiveForm)
     },
-
     {
         path: 'templete-driven-from',
         loadComponent: () => import('../app/components/template-driven-form/template-driven-form')
