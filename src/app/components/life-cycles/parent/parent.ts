@@ -1,5 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, NO_ERRORS_SCHEMA, ViewChild } from '@angular/core';
+import {
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  NO_ERRORS_SCHEMA,
+  ViewChild
+} from '@angular/core';
 import { Child } from '../child/child';
 
 @Component({
@@ -9,10 +17,11 @@ import { Child } from '../child/child';
   styleUrl: './parent.scss',
   schemas: [NO_ERRORS_SCHEMA]
 })
-export class Parent implements 
-AfterViewInit,
-AfterViewChecked,
-AfterContentInit {
+export class Parent implements
+  AfterViewInit,
+  AfterViewChecked,
+  AfterContentInit,
+  AfterContentChecked {
   selectedEmployeeId = 1;
   count = 0;
   message = 'Child Component Loaded';
@@ -29,11 +38,11 @@ AfterContentInit {
     );
   }
 
-  ngAfterContentChecked():void{
+  ngAfterContentChecked(): void {
     // ngAfterContentChecked is a lifecycle hook that executes after every Angular change detection cycle once projected content
     // inside a component is checked. It is mainly used to monitor updates in dynamically projected content using ng-content,
     // but heavy logic should be avoided because it runs frequently.
-     console.log(
+    console.log(
       'Projected Content Checked'
     );
   }
@@ -68,7 +77,7 @@ AfterContentInit {
     this.count++;
   }
 
-  changeMessage(){
+  changeMessage() {
     this.developer = 'Senior Angular Developer'
   }
 
