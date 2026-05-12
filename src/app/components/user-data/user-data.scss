@@ -68,3 +68,15 @@ input {
     margin: 5px 0;
     padding: 8px;
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  position: absolute;
+  background: white;
+  width: 150px;
+  border: 1px solid #ccc;
+}

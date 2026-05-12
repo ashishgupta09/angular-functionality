@@ -3,17 +3,25 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { User } from '../../interfaces/users';
 import { LocalStorage } from '../../services/local-storage';
+import { Promise } from '../promise/promise';
 
 @Component({
   selector: 'app-user-data',
   imports: [
     CommonModule,
     FormsModule,
+    Promise
   ],
   templateUrl: './user-data.html',
   styleUrl: './user-data.scss',
 })
 export class UserData {
+
+  isOpen = false;
+  selected = 'Select Option';
+  options = ['Angular', 'React', 'Vue'];
+  mail = "Hello! from the Ashish";
+
   @Input() message!: string;
   @Output() notify = new EventEmitter<string>();
   tab = 'tab1';
@@ -84,4 +92,18 @@ export class UserData {
   sendData() {
     this.notify.emit('Hello Parent');
   }
+
+  toggleDropdown() {
+    this.isOpen = !this.isOpen;
+  }
+
+  selectOption(option: string) {
+    this.selected = option;
+    this.isOpen = false;
+  }
+
+  receiveData(data: string) {
+    console.log(data);
+  }
+
 }

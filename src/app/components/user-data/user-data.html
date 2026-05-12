@@ -47,3 +47,23 @@
     </div>
 </div>
 }
+
+
+<div class="dropdown">
+    <button class="dropdown-btn" (click)="toggleDropdown()">
+        {{selected}}
+    </button>
+
+    @if(isOpen){
+    <div class="dropdown-content">
+        @for(option of options; track option){
+        <div (click)="selectOption(option)">
+            {{ option }}
+        </div>
+        }
+    </div>
+    }
+
+</div>
+
+<app-promise [message]="mail" (notify)="receiveData($event)"></app-promise>

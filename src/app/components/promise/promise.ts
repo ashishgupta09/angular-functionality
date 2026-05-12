@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { LocalStorage } from '../../services/local-storage';
 
 @Component({
@@ -9,6 +9,8 @@ import { LocalStorage } from '../../services/local-storage';
   styleUrl: './promise.scss',
 })
 export class Promise implements OnInit {
+  @Input() message!: string;
+  @Output() notify = new EventEmitter<string>();
 
   constructor(
     private fileService: LocalStorage
@@ -72,6 +74,10 @@ export class Promise implements OnInit {
     } catch (error) {
       console.log("Login failed:", error);
     }
+  }
+
+  sendData(){
+    this.notify.emit('Hello Parent');
   }
 
 }
