@@ -76,5 +76,13 @@ export const routes: Routes = [
         // canActivate: [authGuard],
         loadComponent: () => import('../app/components/observables/join/join')
             .then(m => m.Join)
+    },
+    {
+        path: 'parent',
+        loadComponent: () => import('../app/components/life-cycles/parent/parent').then(m => m.Parent)
+    },
+    {
+        path: 'child',
+        loadComponent: () => import('../app/components/life-cycles/child/child').then(m => m.Child)
     }
 ];

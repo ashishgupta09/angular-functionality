@@ -1,0 +1,85 @@
+<!-- ========================= -->
+<!-- ngOnChanges Example -->
+<!-- ========================= -->
+
+<h2>Employee List</h2>
+
+<!-- Button to change employeeId -->
+<button (click)="changeEmployee(1)">
+    Employee 1
+</button>
+
+<button (click)="changeEmployee(2)">
+    Employee 2
+</button>
+
+<button (click)="changeEmployee(3)">
+    Employee 3
+</button>
+
+<hr>
+
+<!-- Child component receives updated Input -->
+<!-- ngOnChanges triggers whenever employeeId changes -->
+<app-child [employeeId]="selectedEmployeeId">
+</app-child>
+
+
+<!-- ========================= -->
+<!-- ngAfterViewInit & ngAfterViewChecked Example -->
+<!-- ========================= -->
+
+<hr>
+
+<h2>Parent Component - View Lifecycle</h2>
+
+<!-- Count value shown in view -->
+<p>Count: {{ count }}</p>
+
+<!-- Clicking button updates view -->
+<button (click)="increaseCount()">
+    Increase
+</button>
+
+<!-- 
+ngAfterViewInit:
+Runs once after component view is initialized.
+
+ngAfterViewChecked:
+Runs every time Angular checks the component view.
+-->
+<app-view-child></app-view-child>
+
+
+<!-- ========================= -->
+<!-- ngAfterContentInit & ngAfterContentChecked Example -->
+<!-- ========================= -->
+
+<hr>
+
+<h2>Parent Component - Content Lifecycle</h2>
+
+<!-- Change projected content -->
+<button (click)="changeMessage()">
+    Change Message
+</button>
+
+<!-- 
+Content Projection Example
+
+ngAfterContentInit:
+Runs once after projected content (<ng-content>) loads.
+
+ngAfterContentChecked:
+Runs whenever projected content changes.
+-->
+<app-content-child>
+
+    <!-- Projected Content -->
+    <p>
+        Employee Dashboard Data
+    </p>
+
+    <p>{{ developer }}</p>
+
+</app-content-child>
