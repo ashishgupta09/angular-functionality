@@ -1,0 +1,130 @@
+<div class="page-wrapper">
+
+    <div class="form-card">
+
+        <div class="form-header">
+            <h1>Dynamic Registration Form</h1>
+            <p>
+                Build scalable enterprise forms using Angular Reactive Forms.
+            </p>
+        </div>
+
+        @if (loading) {
+
+        <div class="loader-wrapper">
+            <div class="loader"></div>
+            <h3>Loading Form...</h3>
+        </div>
+
+        } @else {
+
+        <form [formGroup]="dynamicForms" (ngSubmit)="onSubmit()">
+
+            <div class="form-grid">
+
+                @for (
+                field of formFields;
+                track field.id
+                ) {
+
+                @let control = dynamicForms.get(field.name);
+
+                <div class="form-group">
+
+                    <label>
+                        {{ field.label }}
+                    </label>
+
+                    <!-- INPUT -->
+
+                    @if (field.type !== 'select') {
+
+                    <input class="form-control" [type]="field.type" [placeholder]="'Enter ' + field.label"
+                        [formControlName]="field.name" />
+
+                    }
+
+                    <!-- SELECT -->
+
+                    @if (field.type === 'select') {
+
+                    <select class="form-control" [formControlName]="field.name">
+
+                        <option value="">
+                            Select {{ field.label }}
+                        </option>
+
+                        @for (
+                        option of field.options;
+                        track option
+                        ) {
+
+                        <option [value]="option">
+                            {{ option }}
+                        </option>
+
+                        }
+
+                    </select>
+
+                    }
+
+                    <!-- VALIDATION -->
+
+                    @if (
+                    control?.touched &&
+                    control?.invalid
+                    ) {
+
+                    <div class="error-message">
+
+                        @if (
+                        control?.errors?.['required']
+                        ) {
+
+                        <small>
+                            This field is required
+                        </small>
+
+                        }
+
+                        @if (
+                        control?.errors?.['email']
+                        ) {
+
+                        <small>
+                            Invalid email format
+                        </small>
+
+                        }
+
+                        @if (
+                        control?.errors?.['minlength']
+                        ) {
+
+                        <small>
+                            Minimum length required
+                        </small>
+
+                        }
+
+                    </div>
+
+                    }
+
+                </div>
+
+                }
+
+            </div>
+
+            <button class="submit-btn" type="submit" [disabled]="dynamicForms.invalid">
+                Submit Form
+            </button>
+
+        </form>
+
+        }
+
+    </div>
+</div>
