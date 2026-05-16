@@ -1,57 +1,69 @@
 {
-    "formFields": [
-        {
-            "id": "1",
-            "type": "text",
-            "name": "fullName",
-            "label": "Full Name",
-            "validators": [
-                "required"
-            ]
-        },
-        {
-            "id": "2",
-            "type": "email",
-            "name": "email",
-            "label": "Email",
-            "validators": [
-                "required",
-                "email"
-            ]
-        },
-        {
-            "id": "3",
-            "type": "password",
-            "name": "password",
-            "label": "Password",
-            "validators": [
-                "required",
-                "minLength:6"
-            ]
-        },
-        {
-            "id": "4",
-            "type": "select",
-            "name": "country",
-            "label": "Country",
-            "options": [
-                "India",
-                "USA",
-                "Japan"
-            ],
-            "validators": [
-                "required"
-            ]
-        }
-    ],
-    "users": [
-        {
-            "fullName": "Ashish",
-            "email": "ashish@gmail.com",
-            "password": "@123344222",
-            "country": "India",
-            "id": "viNLa6PeIk4"
-        }
-    ],
-    "$schema": "./node_modules/json-server/schema.json"
+  "formFields": [
+    {
+      "id": "1",
+      "type": "text",
+      "name": "fullName",
+      "label": "Full Name",
+      "validators": [
+        "required"
+      ]
+    },
+    {
+      "id": "2",
+      "type": "email",
+      "name": "email",
+      "label": "Email",
+      "validators": [
+        "required",
+        "email"
+      ]
+    },
+    {
+      "id": "3",
+      "type": "password",
+      "name": "password",
+      "label": "Password",
+      "validators": [
+        "required",
+        "minLength:6"
+      ]
+    },
+    {
+      "id": "4",
+      "type": "select",
+      "name": "country",
+      "label": "Country",
+      "options": [
+        "India",
+        "USA",
+        "Japan"
+      ],
+      "validators": [
+        "required"
+      ]
+    }
+  ],
+  "users": [
+    {
+      "fullName": "Ashish",
+      "email": "ashish@gmail.com",
+      "password": "@123344222",
+      "country": "India",
+      "id": "viNLa6PeIk4"
+    }
+  ],
+  "employees": [
+    {
+      "name": "Ashish",
+      "email": "Ashish@gmail.com",
+      "role": "ashish@gmail.com",
+      "skills": [
+        "Angular",
+        "Javascript"
+      ],
+      "id": "EMX-vckBLBA"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
